@@ -9,11 +9,31 @@ function logOut() {
   let logOut = false;
   emit("loggedOut", logOut);
 }
+
+let borderSize = ref("0.5em");
 </script>
 
 <template>
   <div class="container">
-    <div class="Profile" @click="showMenu = !showMenu">Profile</div>
+    <div
+      class="Profile"
+      @click="showMenu = !showMenu"
+      v-bind:style="[
+        showMenu
+          ? {
+              borderTopLeftRadius: borderSize,
+              borderTopRightRadius: borderSize,
+            }
+          : {
+              borderTopLeftRadius: borderSize,
+              borderTopRightRadius: borderSize,
+              borderBottomLeftRadius: borderSize,
+              borderBottomRightRadius: borderSize,
+            },
+      ]"
+    >
+      Profile
+    </div>
     <ul v-if="showMenu" class="list">
       <li>Username</li>
       <li @click="logOut">Log out</li>
@@ -29,23 +49,32 @@ function logOut() {
 }
 
 .Profile {
+  padding: 0.5em;
+  background-color: #0e0e10;
+  color: white;
+  text-align: center;
   cursor: pointer;
 }
 
 .list {
   padding: 0;
-  margin-top: 1.5em;
+  margin-top: 2.4em;
   position: absolute;
+  padding: 1em;
+
+  background-color: #50c878;
+  border-radius: 0.5em 0.5em 0.5em 0.5em;
 }
 .list li {
   cursor: pointer;
-  background-color: red;
   text-align: center;
   padding: 1em 1em 1em 1em;
   list-style: none;
+  max-width: 100%;
 }
 
 .list li:hover {
-  background-color: aliceblue;
+  background-color: #3d9c5d;
+  border-radius: 0.5em 0.5em 0.5em 0.5em;
 }
 </style>

@@ -15,7 +15,7 @@ let borderSize = ref("0.5em");
 </script>
 
 <template>
-  <div>
+  <div class="container">
     <div
       id="login"
       @click="showMenu = !showMenu"
@@ -35,19 +35,31 @@ let borderSize = ref("0.5em");
     >
       Login
     </div>
+    <div class="test">
+      <form v-if="showMenu" action="#">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" name="uname" placeholder="Enter" required />
+        <label for="psw"><b>Password</b></label>
+        <input
+          type="password"
+          placeholder="Enter Password"
+          name="psw"
+          required
+        />
 
-    <form v-if="showMenu" action="#">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" name="uname" placeholder="Enter Username" required />
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required />
-
-      <button type="submit" @click="login">Login</button>
-    </form>
+        <button type="submit" @click="login">Login</button>
+      </form>
+    </div>
   </div>
 </template>
 
 <style scoped>
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 #login {
   padding: 0.5em;
   background-color: #0e0e10;
@@ -55,14 +67,17 @@ let borderSize = ref("0.5em");
   text-align: center;
   cursor: pointer;
 }
-
+.test {
+  margin-top: 2.4em;
+  position: absolute;
+}
 form {
   display: flex;
-  position: absolute;
   flex-direction: column;
   padding: 1em;
+
   background-color: #50c878;
-  border-radius: 0em 0.5em 0.5em 0.5em;
+  border-radius: 0.5em 0.5em 0.5em 0.5em;
 }
 
 form button {
