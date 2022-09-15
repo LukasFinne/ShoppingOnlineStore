@@ -18,7 +18,7 @@ const handleLogin = (x) => {
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/about">About</RouterLink>
       <LogIn v-if="!logIn" @loggedIn="handleLogin" />
-      <UserProfile v-else>Profile</UserProfile>
+      <UserProfile v-else @loggedOut="handleLogin">Profile</UserProfile>
 
       <p>Cart</p>
     </nav>
