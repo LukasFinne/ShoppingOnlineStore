@@ -1,15 +1,24 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 import LogIn from "./components/Log-in.vue";
+import { ref } from "vue";
+import UserProfile from "./components/UserProfile.vue";
+
+let logIn = ref(false);
+
+const handleLogin = (x) => {
+  logIn.value = x;
+};
 </script>
 
 <template>
   <header>
-    <h2>ShoppingGreen@Us</h2>
+    <h2>ShoppingGreen</h2>
     <nav>
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/about">About</RouterLink>
-      <LogIn />
+      <LogIn v-if="!logIn" @loggedIn="handleLogin" />
+      <UserProfile v-else>Profile</UserProfile>
 
       <p>Cart</p>
     </nav>
@@ -30,7 +39,7 @@ header {
   display: flex;
   padding: 2em;
   max-width: 100%;
-  max-height: 5%;
+  margin: auto;
   justify-content: space-evenly;
   align-items: center;
   border-bottom: 1px solid;
@@ -52,7 +61,7 @@ header p {
 header nav {
   display: flex;
   flex-grow: 2;
-  max-width: 80%;
+  max-width: 100%;
   justify-content: space-evenly;
   align-items: baseline;
 }
@@ -67,5 +76,7 @@ footer nav {
 <style>
 body {
   background-color: white;
+  max-width: 70%;
+  margin: auto;
 }
 </style>
