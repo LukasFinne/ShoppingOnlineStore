@@ -3,6 +3,7 @@ import { RouterLink, RouterView } from "vue-router";
 import LogIn from "./components/Log-in.vue";
 import { ref } from "vue";
 import UserProfile from "./components/UserProfile.vue";
+import ProductList from "./components/Product-list.vue";
 
 let logIn = ref(false);
 
@@ -23,7 +24,7 @@ const handleLogin = (x) => {
       <p>Cart</p>
     </nav>
   </header>
-
+  <ProductList />
   <footer>
     <nav>
       <a href="#">Instagram</a>
