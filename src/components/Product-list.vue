@@ -5,6 +5,12 @@ const data = ref(null);
 const error = ref(null);
 const url = "data/db.json";
 
+const emit = defineEmits(["addToCart"]);
+
+function add(product) {
+  emit("addToCart", product);
+}
+
 fetch(url)
   .then((res) => res.json())
   .then((json) => (data.value = json))
@@ -22,7 +28,7 @@ fetch(url)
     >
       <h3 class="productName">{{ product.name }}</h3>
       <p class="productPrice">{{ product.price }} kr</p>
-      <button>Add</button>
+      <button class="button" @click="add(product)">Add</button>
     </div>
     <div v-else>Loading...</div>
   </div>
@@ -37,9 +43,9 @@ fetch(url)
   margin: 1em;
   height: 10em;
   width: 10em;
+  box-shadow: rgba(99, 99, 99, 0.2) 0em 0.125em 0.5em 0em;
   display: flex;
   flex-direction: column;
-  border: solid 1px;
   align-items: center;
 }
 </style>

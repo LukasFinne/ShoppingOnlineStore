@@ -4,8 +4,14 @@ import LogIn from "./components/Log-in.vue";
 import { ref } from "vue";
 import UserProfile from "./components/UserProfile.vue";
 import ProductList from "./components/Product-list.vue";
+import CartList from "./components/CartList.vue";
 
 let logIn = ref(false);
+let cart = ref([]);
+
+const handleCart = (product) => {
+  cart.value.push(product);
+};
 
 const handleLogin = (x) => {
   logIn.value = x;
@@ -20,11 +26,10 @@ const handleLogin = (x) => {
       <RouterLink to="/about">About</RouterLink>
       <LogIn v-if="!logIn" @loggedIn="handleLogin" />
       <UserProfile v-else @loggedOut="handleLogin">Profile</UserProfile>
-
-      <p>Cart</p>
+      <CartList :name="cart" />
     </nav>
   </header>
-  <ProductList />
+  <ProductList @addToCart="handleCart" />
   <footer>
     <nav>
       <a href="#">Instagram</a>
