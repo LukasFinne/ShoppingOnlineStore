@@ -89,6 +89,7 @@ header nav {
 }
 
 footer nav {
+  border-top: 1px solid;
   display: flex;
   justify-content: space-evenly;
   align-items: baseline;

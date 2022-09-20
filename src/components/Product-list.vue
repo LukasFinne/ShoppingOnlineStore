@@ -38,6 +38,7 @@ fetch(url)
 .productContainer {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 .itemContainer {
   background-color: #50c878;
