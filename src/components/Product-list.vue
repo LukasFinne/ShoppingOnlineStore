@@ -40,6 +40,7 @@ fetch(url)
   flex-direction: row;
 }
 .itemContainer {
+  background-color: #50c878;
   margin: 1em;
   height: 10em;
   width: 10em;
@@ -47,5 +48,6 @@ fetch(url)
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 0.5em;
 }
 </style>

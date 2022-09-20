@@ -28,6 +28,7 @@ function clearList() {
 }
 
 function removeItem(id) {
+  totalPrice.value -= props.name[id].price;
   emit("removeItem", id);
 }
 
