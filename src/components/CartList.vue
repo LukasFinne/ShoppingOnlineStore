@@ -5,6 +5,8 @@ let showCart = ref(false);
 
 let totalPrice = ref(0);
 
+const emit = defineEmits(["clearList", "removeItem"]);
+
 function addToPrice() {
   let temp = 0;
   for (let i = 0; i < props.name.length; i++) {
@@ -19,6 +21,14 @@ function show() {
 }
 function hide() {
   return (showCart.value = false);
+}
+
+function clearList() {
+  emit("clearList");
+}
+
+function removeItem(id) {
+  emit("removeItem", id);
 }
 
 const props = defineProps({
@@ -59,9 +69,11 @@ let borderSize = ref("0.5em");
       v-if="showCart"
       class="cartList"
     >
-      <li v-for="product in props.name" :key="product.id">
+      <li v-for="(product, index) in props.name" :key="product.id">
         {{ product.name }} {{ product.price }}kr
+        <button @click="removeItem(index)">remove</button>
       </li>
+      <button @click="clearList">Clear</button>
       <div>Total:{{ totalPrice }}</div>
     </ul>
   </div>

@@ -16,6 +16,18 @@ const handleCart = (product) => {
 const handleLogin = (x) => {
   logIn.value = x;
 };
+
+const handleList = () => {
+  while (cart.value.length > 0) {
+    cart.value.pop();
+  }
+};
+
+const handleRemoveItem = (id) => {
+  if (id > -1) {
+    cart.value.splice(id, 1);
+  }
+};
 </script>
 
 <template>
@@ -26,7 +38,11 @@ const handleLogin = (x) => {
       <RouterLink to="/about">About</RouterLink>
       <LogIn v-if="!logIn" @loggedIn="handleLogin" />
       <UserProfile v-else @loggedOut="handleLogin">Profile</UserProfile>
-      <CartList :name="cart" />
+      <CartList
+        :name="cart"
+        @clearList="handleList"
+        @removeItem="handleRemoveItem"
+      />
     </nav>
   </header>
   <ProductList @addToCart="handleCart" />
