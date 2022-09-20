@@ -11,6 +11,34 @@
     {
       "name": "Sugar",
       "price": 50
+    },
+    {
+      "name": "Ice cream",
+      "price": 10
+    },
+    {
+      "name": "Potato",
+      "price": 12
+    },
+    {
+      "name": "Bread",
+      "price": 20
+    },
+    {
+      "name": "Honey",
+      "price": 29
+    },
+    {
+      "name": "Chips",
+      "price": 19
+    },
+    {
+      "name": "Nuts",
+      "price": 9
+    },
+    {
+      "name": "Cola",
+      "price": 15
     }
   ]
 }
