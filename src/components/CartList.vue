@@ -53,7 +53,12 @@ let borderSize = ref("0.5em");
     >
       Cart({{ props.name.length }})
     </div>
-    <ul v-if="showCart" class="cartList">
+    <ul
+      @mouseover="show()"
+      @mouseleave="hide()"
+      v-if="showCart"
+      class="cartList"
+    >
       <li v-for="product in props.name" :key="product.id">
         {{ product.name }} {{ product.price }}kr
       </li>
