@@ -33,7 +33,7 @@ let borderSize = ref("0.5em");
             },
       ]"
     >
-      Login
+      <b> Login</b>
     </div>
     <div class="test">
       <form v-if="showMenu" action="#">
@@ -62,6 +62,7 @@ let borderSize = ref("0.5em");
 
 #login {
   padding: 0.5em;
+  font-size: 1.2em;
   background-color: #0e0e10;
   color: white;
   text-align: center;

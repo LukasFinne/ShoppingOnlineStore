@@ -15,8 +15,8 @@ const handleLogin = (x) => {
   <header>
     <h2>ShoppingGreen</h2>
     <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
+      <RouterLink class="routerLinks" to="/"><b> Home</b></RouterLink>
+      <RouterLink class="routerLinks" to="/about"><b>About</b></RouterLink>
       <LogIn v-if="!logIn" @loggedIn="handleLogin" />
       <UserProfile v-else @loggedOut="handleLogin">Profile</UserProfile>
     </nav>
@@ -49,6 +49,7 @@ header h2 {
   border-radius: 1em;
   background-color: #50c878;
   color: white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0em 0.125em 0.5em 0em;
 }
 
 header p {
@@ -61,6 +62,16 @@ header nav {
   max-width: 100%;
   justify-content: space-evenly;
   align-items: baseline;
+}
+
+.routerLinks {
+  text-decoration: none;
+  color: white;
+  padding: 0.5em;
+  font-size: 1.2em;
+  border-radius: 0.5em;
+  background-color: #50c878;
+  box-shadow: rgba(99, 99, 99, 0.2) 0em 0.125em 0.5em 0em;
 }
 
 footer nav {
