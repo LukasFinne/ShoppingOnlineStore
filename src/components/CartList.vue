@@ -5,7 +5,7 @@ let showCart = ref(false);
 
 let totalPrice = ref(0);
 
-const emit = defineEmits(["clearList", "removeItem"]);
+const emit = defineEmits(["checkOut", "removeItem"]);
 
 function addToPrice() {
   let temp = 0;
@@ -23,8 +23,8 @@ function hide() {
   return (showCart.value = false);
 }
 
-function clearList() {
-  emit("clearList");
+function checkOut() {
+  emit("checkOut");
 }
 
 function removeItem(id) {
@@ -74,7 +74,7 @@ let borderSize = ref("0.5em");
         {{ product.name }} {{ product.price }}kr
         <button @click="removeItem(index)">remove</button>
       </li>
-      <button @click="clearList">Clear</button>
+      <button @click="checkOut">Check out</button>
       <div>Total:{{ totalPrice }}</div>
     </ul>
   </div>

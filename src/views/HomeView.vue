@@ -26,13 +26,11 @@ const handleRemoveItem = (id) => {
   <header>
     <CartList
       :name="cart"
-      @clearList="handleList"
+      @checkOut="handleList"
       @removeItem="handleRemoveItem"
     />
   </header>
   <main><ProductList @addToCart="handleCart" /></main>
 </template>
 
-<style scoped>
-  
-</style>
+<style scoped></style>
