@@ -26,7 +26,7 @@ fetch(url)
       v-for="product in data.products"
       :key="product.id"
     >
-      <h3 class="productName">{{ product.name }}</h3>
+      <h2 class="productName">{{ product.name }}</h2>
       <p class="productPrice">{{ product.price }} kr</p>
       <button class="button" @click="add(product)">Add</button>
     </div>
@@ -40,7 +40,14 @@ fetch(url)
   flex-direction: row;
   flex-wrap: wrap;
 }
+p {
+  font-size: 1.5em;
+  margin: 0;
+  margin-bottom: 0.5em;
+}
 .itemContainer {
+  color: #0e0e10;
+
   background-color: #50c878;
   margin: 1em;
   height: 10em;

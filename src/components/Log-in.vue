@@ -75,7 +75,7 @@ form {
   display: flex;
   flex-direction: column;
   padding: 1em;
-  border: solid 1px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0em 0.125em 0.5em 0em;
   background-color: #50c878;
   border-radius: 0.5em 0.5em 0.5em 0.5em;
 }
