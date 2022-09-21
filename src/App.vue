@@ -3,31 +3,14 @@ import { RouterLink, RouterView } from "vue-router";
 import LogIn from "./components/Log-in.vue";
 import { ref } from "vue";
 import UserProfile from "./components/UserProfile.vue";
-import ProductList from "./components/Product-list.vue";
-import CartList from "./components/CartList.vue";
 
 let logIn = ref(false);
 let cart = ref([]);
-
-const handleCart = (product) => {
-  cart.value.push(product);
-};
 
 const handleLogin = (x) => {
   logIn.value = x;
 };
 
-const handleList = () => {
-  while (cart.value.length > 0) {
-    cart.value.pop();
-  }
-};
-
-const handleRemoveItem = (id) => {
-  if (id > -1) {
-    cart.value.splice(id, 1);
-  }
-};
 </script>
 
 <template>
@@ -38,14 +21,9 @@ const handleRemoveItem = (id) => {
       <RouterLink to="/about">About</RouterLink>
       <LogIn v-if="!logIn" @loggedIn="handleLogin" />
       <UserProfile v-else @loggedOut="handleLogin">Profile</UserProfile>
-      <CartList
-        :name="cart"
-        @clearList="handleList"
-        @removeItem="handleRemoveItem"
-      />
     </nav>
   </header>
-  <ProductList @addToCart="handleCart" />
+  <RouterView />
   <footer>
     <nav>
       <a href="#">Instagram</a>
@@ -53,7 +31,6 @@ const handleRemoveItem = (id) => {
       <p>Contact us: shopping_green@Us.com</p>
     </nav>
   </footer>
-  <RouterView />
 </template>
 
 <style scoped>

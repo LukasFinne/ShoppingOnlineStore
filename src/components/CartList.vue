@@ -84,7 +84,8 @@ let borderSize = ref("0.5em");
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
+  margin: 0.5em 2em 0.5em 0.5em;
 }
 .btnCart {
   padding: 0.5em;
@@ -99,9 +100,9 @@ let borderSize = ref("0.5em");
   margin-top: 2.4em;
   position: absolute;
   padding: 1em;
-
+  border: solid 1px;
   background-color: #50c878;
-  border-radius: 0.5em 0.5em 0.5em 0.5em;
+  border-radius: 0.5em 0em 0.5em 0.5em;
 }
 .cartList li {
   cursor: pointer;
