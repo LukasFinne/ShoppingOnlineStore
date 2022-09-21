@@ -32,7 +32,7 @@ let borderSize = ref("0.5em");
             },
       ]"
     >
-      Profile
+      <b> Profile</b>
     </div>
     <ul v-if="showMenu" class="list">
       <li @click="logOut"><b>Log out</b></li>
@@ -48,6 +48,7 @@ let borderSize = ref("0.5em");
 }
 
 .Profile {
+  font-size: 1.2em;
   padding: 0.5em;
   background-color: #0e0e10;
   color: white;

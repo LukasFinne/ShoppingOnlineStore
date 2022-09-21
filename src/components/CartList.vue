@@ -62,7 +62,7 @@ let borderSize = ref("0.5em");
             },
       ]"
     >
-      Cart({{ props.name.length }})
+      <b> Cart</b>({{ props.name.length }})
     </div>
     <ul
       @mouseover="show()"
@@ -88,6 +88,7 @@ let borderSize = ref("0.5em");
   margin: 0.7em 2em 0.5em 0.5em;
 }
 .btnCart {
+  font-size: 1.2em;
   padding: 0.5em;
   background-color: #0e0e10;
   color: white;
