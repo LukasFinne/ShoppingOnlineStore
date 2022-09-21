@@ -5,12 +5,10 @@ import { ref } from "vue";
 import UserProfile from "./components/UserProfile.vue";
 
 let logIn = ref(false);
-let cart = ref([]);
 
 const handleLogin = (x) => {
   logIn.value = x;
 };
-
 </script>
 
 <template>
