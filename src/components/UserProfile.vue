@@ -35,7 +35,6 @@ let borderSize = ref("0.5em");
       Profile
     </div>
     <ul v-if="showMenu" class="list">
-      <li><b>Username</b></li>
       <li @click="logOut"><b>Log out</b></li>
     </ul>
   </div>

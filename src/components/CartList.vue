@@ -85,7 +85,7 @@ let borderSize = ref("0.5em");
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin: 0.5em 2em 0.5em 0.5em;
+  margin: 0.7em 2em 0.5em 0.5em;
 }
 .btnCart {
   padding: 0.5em;
