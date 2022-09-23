@@ -25,7 +25,7 @@ const handleRemoveItem = (id) => {
 <template>
   <header>
     <CartList
-      :name="cart"
+      :item="cart"
       @checkOut="handleList"
       @removeItem="handleRemoveItem"
     />

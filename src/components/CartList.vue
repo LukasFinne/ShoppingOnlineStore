@@ -7,13 +7,13 @@ let totalPrice = ref(0);
 
 const emit = defineEmits(["checkOut", "removeItem"]);
 const props = defineProps({
-  name: Array,
+  item: Array,
 });
 
 function addToPrice() {
   let temp = 0;
-  for (let i = 0; i < props.name.length; i++) {
-    temp += props.name[i].price;
+  for (let i = 0; i < props.item.length; i++) {
+    temp += props.item[i].price;
   }
   if (totalPrice.value != temp) {
     totalPrice.value = temp;
@@ -31,7 +31,7 @@ function checkOut() {
 }
 
 function removeItem(id) {
-  totalPrice.value -= props.name[id].price;
+  totalPrice.value -= props.item[id].price;
   emit("removeItem", id);
 }
 
@@ -61,7 +61,7 @@ let borderSize = ref("0.5em");
             },
       ]"
     >
-      <b> Cart</b>({{ props.name.length }})
+      <b> Cart</b>({{ props.item.length }})
     </div>
     <ul
       @mouseover="show()"
@@ -69,8 +69,8 @@ let borderSize = ref("0.5em");
       v-if="showCart"
       class="cartList"
     >
-      <li v-for="(product, index) in props.name" :key="product.id">
-        {{ product.name }} {{ product.price }}kr
+      <li v-for="(product, index) in props.item" :key="product.id">
+        {{ product.item }} {{ product.price }}kr
         <button @click="removeItem(index)">remove</button>
       </li>
       <button @click="checkOut">Check out</button>
