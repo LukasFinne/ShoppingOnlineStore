@@ -5,9 +5,14 @@ import { ref } from "vue";
 import UserProfile from "./components/UserProfile.vue";
 
 let logIn = ref(false);
+let username = ref("");
 
 const handleLogin = (x) => {
   logIn.value = x;
+};
+
+const handleUsername = (x) => {
+  username.value = x;
 };
 </script>
 
@@ -17,8 +22,10 @@ const handleLogin = (x) => {
     <nav>
       <RouterLink class="routerLinks" to="/"><b> Home</b></RouterLink>
       <RouterLink class="routerLinks" to="/about"><b>About</b></RouterLink>
-      <LogIn v-if="!logIn" @loggedIn="handleLogin" />
-      <UserProfile v-else @loggedOut="handleLogin">Profile</UserProfile>
+      <LogIn v-if="!logIn" @loggedIn="handleLogin" @username="handleUsername" />
+      <UserProfile v-else @loggedOut="handleLogin" :username="username"
+        >Profile</UserProfile
+      >
     </nav>
   </header>
   <RouterView />

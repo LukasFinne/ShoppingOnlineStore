@@ -6,6 +6,9 @@ let showCart = ref(false);
 let totalPrice = ref(0);
 
 const emit = defineEmits(["checkOut", "removeItem"]);
+const props = defineProps({
+  name: Array,
+});
 
 function addToPrice() {
   let temp = 0;
@@ -31,10 +34,6 @@ function removeItem(id) {
   totalPrice.value -= props.name[id].price;
   emit("removeItem", id);
 }
-
-const props = defineProps({
-  name: Array,
-});
 
 let borderSize = ref("0.5em");
 </script>

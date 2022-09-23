@@ -3,12 +3,16 @@ import { ref } from "vue";
 
 const showMenu = ref(false);
 
-const emit = defineEmits(["loggedIn"]);
+const emit = defineEmits(["loggedIn", "username"]);
 
 function login() {
   let login = true;
-
   emit("loggedIn", login);
+}
+
+function username() {
+  let username = document.querySelector("#username").value;
+  emit("username", username);
 }
 
 let borderSize = ref("0.5em");
@@ -37,8 +41,14 @@ let borderSize = ref("0.5em");
     </div>
     <div class="test">
       <form v-if="showMenu" action="#">
-        <label for="uname"><b>Username</b></label>
-        <input type="text" name="uname" placeholder="Enter" required />
+        <label><b>Username</b></label>
+        <input
+          id="username"
+          type="text"
+          name="uname"
+          placeholder="Enter"
+          required
+        />
         <label for="psw"><b>Password</b></label>
         <input
           type="password"
@@ -47,7 +57,15 @@ let borderSize = ref("0.5em");
           required
         />
 
-        <button type="submit" @click="login">Login</button>
+        <button
+          type="submit"
+          @click="
+            login();
+            username();
+          "
+        >
+          Login
+        </button>
       </form>
     </div>
   </div>

@@ -5,6 +5,8 @@ const showMenu = ref(false);
 
 const emit = defineEmits(["loggedOut"]);
 
+const props = defineProps({ username: String });
+
 function logOut() {
   let logOut = false;
   emit("loggedOut", logOut);
@@ -32,7 +34,7 @@ let borderSize = ref("0.5em");
             },
       ]"
     >
-      <b> Profile</b>
+      <b>{{ props.username }}</b>
     </div>
     <ul v-if="showMenu" class="list">
       <li @click="logOut"><b>Log out</b></li>
