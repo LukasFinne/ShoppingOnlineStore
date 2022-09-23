@@ -24,9 +24,9 @@ const handleLogin = (x) => {
   <RouterView />
   <footer>
     <nav>
-      <a href="#">Instagram</a>
-      <a href="#">Facebook</a>
-      <p>Contact us: shopping_green@Us.com</p>
+      <a href="#"><b> Instagram</b></a>
+      <a href="#"> <b> Facebook</b></a>
+      <p><b> Contact us: shopping_green@Us.com </b></p>
     </nav>
   </footer>
 </template>
@@ -79,6 +79,22 @@ footer nav {
   display: flex;
   justify-content: space-evenly;
   align-items: baseline;
+  font-size: 1.2em;
+}
+nav a {
+  text-decoration: none;
+  background-color: #50c878;
+  color: white;
+  padding: 0.5em;
+  border-radius: 0.5em;
+}
+
+nav p {
+  text-decoration: none;
+  background-color: #50c878;
+  color: white;
+  padding: 0.5em;
+  border-radius: 0.5em;
 }
 </style>
 
