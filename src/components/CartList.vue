@@ -70,7 +70,7 @@ let borderSize = ref("0.5em");
       class="cartList"
     >
       <li v-for="(product, index) in props.item" :key="product.id">
-        {{ product.item }} {{ product.price }}kr
+        {{ product.name }} {{ product.price }}kr
         <button @click="removeItem(index)">remove</button>
       </li>
       <button @click="checkOut">Check out</button>
