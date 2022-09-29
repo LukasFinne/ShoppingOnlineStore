@@ -40,42 +40,38 @@ let borderSize = ref("0.5em");
 
 <template>
   <div class="container">
-    <div
-      class="btnCart"
-      @mouseover="
-        show();
-        addToPrice();
-      "
-      @mouseleave="hide()"
-      v-bind:style="[
-        showCart
-          ? {
-              borderTopLeftRadius: borderSize,
-              borderTopRightRadius: borderSize,
-            }
-          : {
-              borderTopLeftRadius: borderSize,
-              borderTopRightRadius: borderSize,
-              borderBottomLeftRadius: borderSize,
-              borderBottomRightRadius: borderSize,
-            },
-      ]"
-    >
-      <b> Cart</b>({{ props.item.length }})
+    <div @mouseover="show()" @mouseleave="hide()">
+      <div
+        class="btnCart"
+        @mouseover="
+          show();
+          addToPrice();
+        "
+        v-bind:style="[
+          showCart
+            ? {
+                borderTopLeftRadius: borderSize,
+                borderTopRightRadius: borderSize,
+              }
+            : {
+                borderTopLeftRadius: borderSize,
+                borderTopRightRadius: borderSize,
+                borderBottomLeftRadius: borderSize,
+                borderBottomRightRadius: borderSize,
+              },
+        ]"
+      >
+        <b> Cart</b>({{ props.item.length }})
+      </div>
+      <ul v-if="showCart" class="cartList">
+        <li v-for="(product, index) in props.item" :key="product.id">
+          {{ product.name }} {{ product.price }}kr
+          <button @click="removeItem(index)">remove</button>
+        </li>
+        <button @click="checkOut">Check out</button>
+        <div>Total:{{ totalPrice }}</div>
+      </ul>
     </div>
-    <ul
-      @mouseover="show()"
-      @mouseleave="hide()"
-      v-if="showCart"
-      class="cartList"
-    >
-      <li v-for="(product, index) in props.item" :key="product.id">
-        {{ product.name }} {{ product.price }}kr
-        <button @click="removeItem(index)">remove</button>
-      </li>
-      <button @click="checkOut">Check out</button>
-      <div>Total:{{ totalPrice }}</div>
-    </ul>
   </div>
 </template>
 
@@ -97,12 +93,12 @@ let borderSize = ref("0.5em");
 
 .cartList {
   padding: 0;
-  margin-top: 2.4em;
+  margin: auto;
   position: absolute;
   padding: 1em;
   box-shadow: rgba(99, 99, 99, 0.2) 0em 0.125em 0.5em 0em;
   background-color: #50c878;
-  border-radius: 0.5em 0em 0.5em 0.5em;
+  border-radius: 0em 0.5em 0.5em 0.5em;
 }
 .cartList li {
   cursor: pointer;
