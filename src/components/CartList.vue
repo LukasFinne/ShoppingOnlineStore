@@ -43,10 +43,7 @@ let borderSize = ref("0.5em");
     <div @mouseover="show()" @mouseleave="hide()">
       <div
         class="btnCart"
-        @mouseover="
-          show();
-          addToPrice();
-        "
+        @mouseover="addToPrice()"
         v-bind:style="[
           showCart
             ? {
